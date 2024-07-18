@@ -1,0 +1,24 @@
+{% extends 'tasks/base.html' %}
+
+{% block title %}Gráfico de Tarefas{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1>Gráfico de Tarefas</h1>
+    </div>
+    <div class="card-body">
+        <form method="GET" action="{% url 'task_chart' %}">
+            <label for="date">Escolha uma data:</label>
+            <input type="date" id="date" name="date">
+            <button type="submit" class="btn btn-primary">Mostrar Gráfico</button>
+        </form>
+        <br>
+        {% if graphic %}
+        <img src="data:image/png;base64,{{ graphic }}" alt="Gráfico de Tarefas" class="img-fluid">
+        {% else %}
+        <p>Nenhum gráfico disponível para a data selecionada.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

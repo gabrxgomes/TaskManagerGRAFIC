@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Tarefas{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1>Lista de Tarefas</h1>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            {% for task in tasks %}
+                <li class="list-group-item">{{ task.get_task_type_display }} - {{ task.created_at }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
